@@ -19,11 +19,82 @@
     HINT: Remember you can't change the properties of grid lines.
     But grid lines are transparent!
     */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .grid-countainer{
+      background-color: black;
+      display: grid;
+      height: 748px;
+      width: 748px;
+      grid-template: 414px 130px 155px 22px / 320px 198px 153px 50px;
+      gap: 9px;
+    }
+
+    .grid-item-red{
+      background-color: #E72F24;
+    }
+
+    .grid-item-blue{
+      background-color: #004592;
+      border-bottom: 10px solid;
+    }
+
+    .grid-item-yellow{
+      background-color: #F9D01E;
+      grid-area: 4/2/-1/3;
+    }
+
+    .grid-item-black{
+      background-color: #232629;
+      grid-area: -2/-3/-1/-2;
+    }
+
+    .grid-item-white1{
+      background-color: #F0F1EC;
+      grid-area: 1/2/2/5;
+    }
+
+    .grid-item-white2{
+      background-color: #F0F1EC;
+      grid-area: 2/1/4/2;
+    }
+
+    .grid-item-white3{
+      background-color: #F0F1EC;
+      grid-area: 2/2/4/4;
+    }
+
+    .grid-item-white4{
+      background-color: #F0F1EC;
+      grid-area: 4/1/-1/2;
+    }
+
+    .grid-item-white5{
+      background-color: #F0F1EC;
+      grid-row: span 2;
+    }
+
   </style>
 </head>
 
 <body>
   <!-- Write your HTML here -->
+   <div class="grid-countainer">
+    <div class="grid-item-red"></div>
+    <div class="grid-item-blue"></div>
+    <div class="grid-item-yellow"></div>
+    <div class="grid-item-black"></div>
+    <div class="grid-item-white1"></div>
+    <div class="grid-item-white2"></div>
+    <div class="grid-item-white3"></div>
+    <div class="grid-item-white4"></div>
+    <div class="grid-item-white5"></div>
+   </div>
 </body>
 
 </html>
