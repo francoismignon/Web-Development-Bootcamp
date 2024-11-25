@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+hr {
+    border: dotted #eaf6f6 6px;
+    border-bottom: none;
+    width: 4%;
+    margin: 100px auto;
+}
+.top-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #e4f9f5;
+    gap: 30px;
+}
+
+.top-cloud{
+    align-self: flex-end;
+    margin-top: 40px;
+    margin-right: 300px;
+}
+
+.bottom-cloud{
+    align-self: flex-start;
+}
