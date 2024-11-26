@@ -1,59 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>François Mignon Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site personnel de présentation de compétences, projets et contact.">
+    <title>Mon Site Personnel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="top-container">
-        <img class="top-cloud cloud" src="./assets/images/cloud.png" alt="cloud">
-        <h1>Je suis François</h1>
-        <h2><span style="text-decoration: underline;">pro</span>grammeur</h2>
-        <img class="bottom-cloud cloud" src="./assets/images/cloud.png" alt="cloud">
-        <img src="./assets/images/mountain.png" alt="mountain">
-    </div>
-    <div class="middle-container">
-        <div class="profile">
-            <img src="./assets/images/Francois_A_professional_LinkedIn_profile_photo_of_a_developer_w_9a90a251-068c-4909-811e-b65e632f891e_ins.jpg" alt="my-pic">
-            <h2>Bonjour.</h2>
-            <p>Développeur web en devenir, passionnée par la tech et les défis. Papa dévoué, amateur de café et de moments simples entre nature et gaming. 💻☕🎮</p>
-        </div>
-        <hr>
-        <div class="skills">
-            <h2>Mes compétences</h2>
-            <div class="parent">
-                <div class="adapt">
-                    <img src="./assets/images/capacite.png" alt="capacite">
-                </div>
-                <div class="capacity">
-                    <h3>Capacité à apprendre rapidement</h3>
-                    <p>Je suis curieuse et passionnée, toujours prête à plonger dans de nouveaux frameworks ou outils comme Laravel, PHP ou Docker. Cela me permet de rester flexible face aux évolutions constantes du développement web.</p>
-                </div>
-                <div class="solve">
-                    <img src="./assets/images/solving.jpg" alt="solving">
-                </div>
-                <div class="solving">
-                    <h3>Ma capacité à résoudre des problèmes techniques</h3>
-                    <p>Je suis méthodique et organisée, et j'aime relever des défis pratiques, comme la mise en place de serveurs, le développement d'applications full stack ou encore la création de petits logiciels. Identifier et résoudre des problèmes techniques est une de mes grandes forces</p>
-                 </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#resume">CV</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-container">
+            <img src="./assets/images/Francois_A_professional_LinkedIn_profile_photo_of_a_developer_w_9a90a251-068c-4909-811e-b65e632f891e_ins.jpg" alt="Photo de profil" class="profile-pic">
+            <div>
+                <h1>Bienvenue sur mon site personnel</h1>
+                <p>Je suis François, étudiant en informatique, passionné par la programmation et le développement web.</p>
             </div>
         </div>
-        <hr>
-        <div class="contact-me">
-            <h2>Restons en contact</h2>
-            <h3>Si vous aimez la nature et le code</h3>
-            <p>Tu aimes la nature autant que moi ? Parlons de sa beauté incroyable ! On peut coder tout en profitant d'une balade en forêt ou en écoutant les sons apaisants de la nature.</p>
-            <a href=""> <button>Contacte moi</button></a>
-        </div>
-    </div>
-    <div class="bottom-container">
-        <a href="" class="footer-link">LinkedIn</a>
-        <a href="" class="footer-link">Github</a>
-        <p class="copyright">© François Mignon @ Dev'Nature Studio.</p>
-    </div>
-</body>
+    </section>
 
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <div class="about-container">
+            <img src="./assets/images/gigachd bee.png" alt="Illustration de mes intérêts" class="about-image">
+            <p>Je suis basé à Boussu, en Belgique. J'aime le développement web, les nouvelles technologies et apprendre de nouvelles compétences.</p>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>CV</h2>
+        <ul>
+            <li><strong>Éducation :</strong> Bachelier en Informatique de Gestion - IRAMPS Mons</li>
+            <li><strong>Expérience :</strong> Développement d'applications de bureau et projets personnels.</li>
+            <li><strong>Compétences :</strong> HTML, CSS, PHP, Laravel, bases de données.</li>
+        </ul>
+    </section>
+
+    <section id="projects">
+        <h2>Projets</h2>
+        <div class="projects-container">
+            <div class="project-item">
+                <img src="./assets/images/mountain.png" alt="Capture du projet 1">
+                <h3>Application de Gestion</h3>
+                <p>Une application pour organiser les tâches quotidiennes, développée en C# avec une base de données.</p>
+            </div>
+            <div class="project-item">
+                <img src="./assets/images/nature.jpg" alt="Capture du projet 2">
+                <h3>Site Portfolio</h3>
+                <p>Un site personnel montrant mes projets et compétences en développement web.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Envie de collaborer ou de discuter ? Vous pouvez me contacter via :</p>
+        <ul>
+            <li>Email : francois@example.com</li>
+            <li>Téléphone : +32 123 456 789</li>
+            <li>LinkedIn : <a href="https://linkedin.com/in/francois" target="_blank">linkedin.com/in/francois</a></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 François Mignon. Tous droits réservés.</p>
+    </footer>
+</body>
 </html>
