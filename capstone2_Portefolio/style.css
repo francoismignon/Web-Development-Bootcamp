@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-family: sacramento;
+    font-size: 5.625rem;
+}
+
+h2{
+    font-family: "Montserrat", sans-serif;
+}
+
+span{
+    text-decoration: underline;
+}
+
+#hero{
+    background-color: #e4f9f5;
+    text-align: center;
+}
+
+.chad{
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin: 20px;
+}
