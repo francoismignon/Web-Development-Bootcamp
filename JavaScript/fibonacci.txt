@@ -1,0 +1,23 @@
+function fibonacciGenerator (n) {
+//Do NOT change any of the code above 👆
+    
+    //Write your code here:
+    var tab = [];
+    if(n === 1){
+        tab.push(0);
+        return tab;
+    }
+    else if(n === 2){
+        tab.push(0);
+        tab.push(1);
+        return tab;
+    }
+    tab.push(0);
+    tab.push(1);
+    for(var i = 2; i<n; i++){
+      tab[i] = tab[i-1] + tab[i-2];  
+    } 
+    //Return an array of fibonacci numbers starting from 0.
+    return tab;
+//Do NOT change any of the code below 👇
+}
