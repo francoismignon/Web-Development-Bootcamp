@@ -1,0 +1,12 @@
+function beer(count){
+    while(count > 0){
+        console.log(count + " bouteilles de bière sur le mur, " + count + " bouteilles de bière. Prends-en une, fais-la passer, " + --count + " bouteilles de bière sur le mur.")
+    }
+}
+----------------------------------------------------------
+function beer(count) {
+    while (count > 0) {
+        //console.log(count + " bouteilles de bière sur le mur, " + count + " bouteilles de bière. Prends-en une, fais-la passer, " + --count + " bouteilles de bière sur le mur.");
+        console.log(count + (count > 1 ? " bouteilles" : " bouteille") + " de bière sur le mur, " + (count > 1 ? " bouteilles" : " bouteille") + " de bière. Prends-en une, fais-la passer, " + --count + (count > 1 ? " bouteilles" : " bouteille") + " de bière sur le mur.")
+    }
+}

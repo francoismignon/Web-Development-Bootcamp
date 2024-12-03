@@ -1,0 +1,53 @@
+function fizzBuzz(tabLenght){
+var tab = [];
+   for(i=1; i<=tabLenght; i++){
+    if(i % 3 === 0){
+       if(i % 5 === 0){
+           tab.push("FizzBuzz");
+       } else{
+           tab.push("Fizz");
+       }
+    } else {
+        if(i % 5 === 0){
+            tab.push("Buzz");
+        } else {
+            tab.push(i);
+        }
+    }
+}
+   console.log(tab); 
+}
+fizzBuzz(10);
+--------------------------------------------------------------------------------------------------
+// compter a partir de 1
+// 1, 2, ...etc
+//qd un nombre est divisible par 3, il faut crier Fizz
+//qd un nombre est divisible par 5, il faut crier Buzz
+//qd un nombre est divisible par 3 et 5, il faut crier FizzBuzz
+
+//creeation d'un tableau allans de 1 a 50
+var tab = [];
+for(i=1;i<=100; i++){
+    tab.push(i);
+}
+//var tab = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+//on regarde si chaque nombre est divisible par 3, par 5 ou par les deux
+    //divisible par 3 ? oui -> divisible par 5 ? -> oui -> on le remplace par FizzBuzz
+                                                  //non -> on le remplace par Fizz
+    //                  non -> divisible par 5? -> oui -> on le remplace par Buzz
+                                                 //non -> on ne fait rien
+for(i=0; i<tab.length; i++){
+    if(tab[i] % 3 === 0){
+       if(tab[i] % 5 === 0){
+           tab[i] = "FizzBuzz";
+       } else{
+           tab[i] = "Fizz";
+       }
+    } else {
+        if(tab[i] % 5 === 0){
+            tab[i] = "Buzz";
+        }
+    }
+}
+//on imprime le tableau avec les nombre divisible changer
+console.log(tab);
