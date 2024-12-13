@@ -1,12 +1,16 @@
 var buttonArray = document.querySelectorAll(".drum");
-
+//son lors du clique
 for(var i=0;i < buttonArray.length;i++){
     buttonArray[i].addEventListener("click", function(){
         makeSound(this.innerHTML);
+        buttonAnimation(this.innerHTML);
     });
 }
+
+//son lors d'une pression de touche
 document.addEventListener("keypress", function(e){
     makeSound(e.key);
+    buttonAnimation(e.key);
 });
 
 function makeSound(key){
@@ -42,6 +46,14 @@ function makeSound(key){
         default:
             break;
     }
+}
+
+function buttonAnimation(currentKey){
+    var buttonPressed = document.querySelector("." + currentKey);
+    buttonPressed.classList.add("pressed");
+    setTimeout(function(){
+        buttonPressed.classList.remove("pressed");
+    }, 100);
 }
 
 
