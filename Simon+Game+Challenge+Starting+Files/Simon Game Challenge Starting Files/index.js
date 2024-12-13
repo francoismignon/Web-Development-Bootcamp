@@ -13,14 +13,16 @@ document.addEventListener("keypress", function(e){
     }
 });
 
-// logique de jeu
-//un tableau de mes boutton
-var buttons = document.querySelectorAll(".btn");
-//tier un nombre entier de 1 a 4
-var random = Math.floor(Math.random() * 4) + 1;
 //choisi le boutton correcpondant dans le tableau poour le mettre dans la serie du jeu
 var serieJeu = [];
 serieJeu.push(buttons[random]);
+
+
+//fonction qui genere un nombre aléatoire et, l'ajoute a un tableau et retourne le tableau
+function chooseButton(selectedButton){
+    selectedButton.push(Math.floor(Math.random() * 4) + 1);
+    return selectedButton;
+};
 
 
 function buttonAnimation(button){
