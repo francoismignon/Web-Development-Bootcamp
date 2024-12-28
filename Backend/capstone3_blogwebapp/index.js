@@ -3,6 +3,8 @@ import express from "express"
 const app = express();
 const port = 3000;
 var articles = [];
+var index;
+var inModif = false;
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -13,13 +15,21 @@ app.get("/", (req, res)=>{
 });
 
 app.post("/edit", (req, res)=>{
-    var index = req.body.index;
+    inModif = true;
+    index = req.body.index;
     res.render("index.ejs", {index: index, articles: articles});
 });
 
 app.post("/submit", (req, res)=>{
-    articles.push(req.body.article);
-    res.render("index.ejs", {articles : articles});
+    if(inModif){
+        inModif = false;
+        articles[index] = req.body.article;
+        console.log(articles[index]);
+        res.render("index.ejs", {articles : articles});
+    } else {
+        articles.push(req.body.article);
+        res.render("index.ejs", {articles : articles});
+    }
 });
 
 app.listen(port, ()=>{

@@ -2,11 +2,7 @@
 
 <body>
    <form action="/submit" method="POST">
-      <textarea type="text" name="article" placeholder="Mon article...">
-         <%if(locals.index){%>
-            <%= articles[index] %>
-            <%  }%>
-         </textarea>
+      <textarea type="text" name="article" placeholder="Mon article..."><%if(locals.index){%><%= articles[index] %><%}%></textarea>
       <input type="submit" value="OK">
    </form>
    <%if(locals.articles){%>
