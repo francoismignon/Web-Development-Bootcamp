@@ -24,7 +24,7 @@ app.post("/submit", (req, res)=>{
     if(inModif){
         inModif = false;
         articles[index] = req.body.article;
-        console.log(articles[index]);
+        // console.log(articles[index]);
         res.render("index.ejs", {articles : articles});
     } else {
         articles.push(req.body.article);
