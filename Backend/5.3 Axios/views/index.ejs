@@ -58,7 +58,13 @@
 
       <div id="tag-error" class="tag-error">
         <!-- Show any errors that were sent from the backend -->
-         <%= error %>
+         <%if(error === 429){%>
+          il y a trop de monde attend un peu manneke
+        <% } else if (error === 404){%>
+          No activities that match your criteria.
+        <% } else {%>
+          aucune idée du problem, voici le code erreur <%= error %>
+        <% }%>
       </div>
     <%}%>
     </section>
