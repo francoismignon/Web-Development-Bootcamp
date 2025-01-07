@@ -1,0 +1,29 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+    <h1>Paroles de la Terre du Milieu</h1>
+    <form method="POST">
+        <select name="character">
+            <%if(locals.characters){%>
+            <%characters.forEach((character)=>{%>
+            <option value="<%= character._id %>"><%= character.name %></option>
+            <%});%>
+            <% }%>
+        </select>
+        <%if(locals.name){%>
+            <input type="text" value="<%= name %>">
+        <%}%>
+        <input type="submit" value="A dit..." formaction="/">
+    </form>
+    <%if(locals.quotes){%>
+    <%if(quotes.length === 0 ){%>
+    <textarea name="quote">Ce personnage n'as rien dit d'interessant</textarea>
+    <% } else {%>
+    <textarea name="quote"><%= quotes[Math.floor(Math.random()*quotes.length)].dialog %></textarea>
+    <%}%>
+    <%}%>
+
+</body>
+<%- include("partials/footer.ejs") %>
+
+</html>
