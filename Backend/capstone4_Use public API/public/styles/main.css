@@ -1,0 +1,163 @@
+/* GENERE AVEC CHATGPT */
+
+/* Importation des polices */
+@font-face {
+    font-family: 'Ringbearer';
+    src: url('/fonts/RINGM__.TTF') format('truetype');
+}
+
+@font-face {
+    font-family: 'Aniron';
+    src: url('/fonts/aniron__.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'AnironBold';
+    src: url('/fonts/anirb__.ttf') format('truetype');
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Aniron', 'Times New Roman', serif;
+    background-color: #fdf5e6;
+    color: #4b3a22;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* En-tête */
+h1 {
+    font-family: 'Ringbearer', serif;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: #3e2723;
+    text-shadow: 2px 2px #d4af37;
+}
+
+/* Formulaire */
+form {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fffbe6;
+    border: 1px solid #4b3a22;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet RGB animé pour le champ de texte et la citation */
+@keyframes rgb-border {
+    0% {
+        border-color: rgb(255, 0, 0);
+        box-shadow: 0 0 10px rgb(255, 0, 0);
+    }
+    33% {
+        border-color: rgb(0, 255, 0);
+        box-shadow: 0 0 10px rgb(0, 255, 0);
+    }
+    66% {
+        border-color: rgb(0, 0, 255);
+        box-shadow: 0 0 10px rgb(0, 0, 255);
+    }
+    100% {
+        border-color: rgb(255, 0, 0);
+        box-shadow: 0 0 10px rgb(255, 0, 0);
+    }
+}
+
+/* Champ de texte */
+input[type="text"] {
+    font-family: 'Aniron', 'Times New Roman', serif;
+    font-size: 1.2em;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid #4b3a22;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4b3a22;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: rgb-border 3s infinite;
+}
+
+/* Zone de texte */
+textarea {
+    resize: none;
+    height: 100px;
+    font-family: 'Aniron', 'Times New Roman', serif;
+    font-size: 1.2em;
+    padding: 8px;
+    margin: 10px 0;
+    border: 2px solid #4b3a22;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #4b3a22;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: rgb-border 3s infinite;
+}
+
+/* Style discret pour le sélecteur */
+select {
+    font-family: 'Aniron', 'Times New Roman', serif;
+    font-size: 1em;
+    padding: 6px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #4b3a22;
+    background-color: transparent;
+    color: #4b3a22;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s ease;
+}
+
+select:hover {
+    border-bottom: 1px solid #d4af37;
+}
+
+/* Bouton de soumission */
+input[type="submit"] {
+    font-family: 'AnironBold', 'Times New Roman', serif;
+    font-size: 1em;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: 1px solid #4b3a22;
+    border-radius: 5px;
+    background-color: #4b3a22;
+    color: #fdf5e6;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #3e2723;
+    box-shadow: 0 0 10px #d4af37;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    select, input[type="submit"], textarea, input[type="text"] {
+        width: 90%;
+    }
+}
