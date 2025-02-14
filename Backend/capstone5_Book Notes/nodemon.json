@@ -1,0 +1,6 @@
+{
+    "watch": ["src", "views"], 
+    "ext": "ts,ejs",
+    "exec": "npx ts-node-dev ./src/app.ts"
+  }
+  

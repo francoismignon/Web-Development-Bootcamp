@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<div class="container text-center">
+    <div class="row">
+        <%books.forEach(book=>{%>
+            <div class="col-2">
+                Titre: <%= book.title %>
+                Auteur: <%= book.last_name %> <%= book.first_name %>
+                Date: <%= book.read_date %>
+                Note: <%= book.rating %>
+            </div>
+        <%});%>
+    </div>
+    
+
+</div>
+<%- include('../partials/footer') %>

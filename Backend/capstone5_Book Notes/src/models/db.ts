@@ -10,3 +10,5 @@ const db = new pg.Client({
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT?parseInt(process.env.DB_PORT): 5432
 });
+db.connect();
+export default db;

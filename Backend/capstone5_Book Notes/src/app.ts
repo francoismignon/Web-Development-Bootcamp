@@ -7,11 +7,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT?parseInt(process.env.PORT):3000;
 const test = '1';
-console.log(typeof(test));
 
+// Servir les fichiers statiques depuis "public"
 app.use(express.static("public"));
+// Activer l'encodage des requêtes POST
 app.use(express.urlencoded({extended: true}));
-app.set('views engine', 'ejs');
+//Defini EJS comme moteur de vue
+app.set('view engine', 'ejs');
 
 app.use('/', bookRoutes);
 
