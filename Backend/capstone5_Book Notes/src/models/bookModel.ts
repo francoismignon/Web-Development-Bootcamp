@@ -15,6 +15,9 @@ export interface Book{
 
 export const fetchAllBooks = async () => {
     const result = await db.query('SELECT * FROM books INNER JOIN authors ON books.author_id = authors.id_author');
-    db.end();
     return result.rows;
+}
+
+export const updateBook = async (book:Book)=>{
+    await db.query('UPDATE books SET cover_url = $1 WHERE title = $2', [book.cover_url, book.title]);
 }
