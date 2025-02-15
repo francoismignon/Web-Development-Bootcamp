@@ -1,19 +1,24 @@
 import axios, { AxiosResponse } from "axios";
-import { Book } from "../models/bookModel";
 
-export async function fetchBookCover(book: Book): Promise<Book> {
+export async function fetchBookCover(title: string): Promise<string> {
   const API_URL = "https://openlibrary.org/search.json";
-  const bookURL: AxiosResponse = await axios.get(`${API_URL}`, {
-    params: { 
-        title: book.title,
-        author: book.last_name
-     },
-  });
   try {
-    console.log(bookURL.data.docs[0].cover_edition_key);
+    const bookURL: AxiosResponse = await axios.get(`${API_URL}`, {
+      params: {
+        title: title,
+        // author: book.last_name,
+      },
+    });
+
+    const doc = bookURL.data.docs.find(
+      (doc: { cover_edition_key: any }) => doc.cover_edition_key
+    );
+    const olid = doc.cover_edition_key;
+    //cree mon URL pour qui point vers l'image de la couverture du livre
+    const bookCoverURL:string = `https://covers.openlibrary.org/b/olid/${olid}-M.jpg`;
+    return bookCoverURL;
   } catch (error) {
-    console.log("le livre n'as pas de covereditionkey")
+    console.log(error);
+    return "";
   }
-  
-  return book;
 }

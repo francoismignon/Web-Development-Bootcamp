@@ -5,11 +5,12 @@ import {Book} from '../models/bookModel';
 
 export const showIndex = async (req: Request, res: Response)=>{
     const books:Book[] = await BookModel.fetchAllBooks();
-    books.forEach(book => {
+
+    for(const book of books){
         if(!book.cover_url){
-            const bookWithCover = OpenlibraryService.fetchBookCover(book);
-        }        
-    });
+            book.cover_url = await OpenlibraryService.fetchBookCover(book.title);
+        }
+    }
     res.render('books/index', {
         title: 'Liste des livres',
         books
