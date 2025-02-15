@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            <form action="/book/<%= book.id_book %>/edit" method="post">
+                <div class="mb-3">
+                    <label for="read-date" class="form-label">Date de lecture</label>
+                    <input type="date" id="read-date" class="form-control" value=<%= book.read_date.toLocaleDateString('fr-BE') %>>
+                </div>
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Note</label>
+                    <input type="text" id="rating" class="form-control" value=<%= book.rating %>>
+                </div>
+                <div class="mb-3">
+                    <label for="review" class="form-label">Critique</label>
+                    <input type="text" id="review" class="form-control" value=<%= book.review %>>
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>

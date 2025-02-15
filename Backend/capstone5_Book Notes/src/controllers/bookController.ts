@@ -16,3 +16,13 @@ export const showIndex = async (req: Request, res: Response)=>{
         books
     });
 }
+
+export const editBook = async (req: Request, res: Response)=>{
+    const id = req.params.id;
+    const book:Book = await BookModel.fetchBookById(id);
+
+    res.render('books/edit', {
+        title: book.title,
+        book
+    });
+}

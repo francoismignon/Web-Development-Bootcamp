@@ -1,17 +1,21 @@
 <%- include('../partials/header') %>
-<div class="container text-center">
-    <div class="row">
+<button type="button" class="btn btn-primary">Ajouter un livre</button>
+<div class="container">
+    <div class="row g-4">
         <%books.forEach(book=>{%>
-            <div class="col-2">
-                <img src="<%= book.cover_url %>">
-                Titre: <%= book.title %>
-                Auteur: <%= book.last_name %> <%= book.first_name %>
-                Date: <%= book.read_date %>
-                Note: <%= book.rating %>
+            <div class="col-2 mx-2">
+                <div class="card">
+                    <img src="<%= book.cover_url %>" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Titre: <%= book.title %></h5>
+                        <p class="card-text">Auteur: <%= book.last_name %> <%= book.first_name %></p>
+                        <p class="card-text">Date: <%= book.read_date.toLocaleDateString('fr-BE') %></p>
+                        <p class="card-text">Note: <%= book.rating %></p>
+                        <a href="/book/<%= book.id_book %>" class="btn btn-primary">Modifer</a>
+                    </div>
+                </div>
             </div>
         <%});%>
     </div>
-    
-
 </div>
 <%- include('../partials/footer') %>
