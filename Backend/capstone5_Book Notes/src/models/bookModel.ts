@@ -7,7 +7,7 @@ export interface Book{
     read_date: object,
     rating: number,
     review: string,
-    cover_url?: string | null,
+    cover_url: string,
     id_author: number,
     last_name: string,
     first_name: string
@@ -18,8 +18,8 @@ export const fetchAllBooks = async () => {
     return result.rows;
 }
 
-export const updateBook = async (book:Book)=>{
-    await db.query('UPDATE books SET cover_url = $1 WHERE title = $2', [book.cover_url, book.title]);
+export const updateBook = async (id: string, data: { id_book: any; author_id?: any; title?: any; read_date?: string; rating?: number; review?: string; cover_url?: any; id_author?: any; last_name?: any; first_name?: any; })=>{
+    await db.query('UPDATE books SET cover_url = $1 WHERE id_book = $2', [data.id_book, id]);
 }
 
 export const fetchBookById = async (id:string)=>{

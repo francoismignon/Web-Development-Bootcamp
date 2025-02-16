@@ -11,7 +11,7 @@
                         <p class="card-text">Auteur: <%= book.last_name %> <%= book.first_name %></p>
                         <p class="card-text">Date: <%= book.read_date.toLocaleDateString('fr-BE') %></p>
                         <p class="card-text">Note: <%= book.rating %></p>
-                        <a href="/book/<%= book.id_book %>" class="btn btn-primary">Modifer</a>
+                        <a href="/book/<%= book.id_book %>/edit" class="btn btn-primary">Modifer</a>
                     </div>
                 </div>
             </div>

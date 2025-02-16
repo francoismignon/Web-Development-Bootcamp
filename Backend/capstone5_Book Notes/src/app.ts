@@ -15,7 +15,7 @@ app.use(express.urlencoded({extended: true}));
 //Defini EJS comme moteur de vue
 app.set('view engine', 'ejs');
 
-app.use('/', bookRoutes);
+app.use('/books', bookRoutes);
 
 app.listen(PORT, ()=>{
     console.log(`[server] server running at: http://localhost:${PORT}`);
