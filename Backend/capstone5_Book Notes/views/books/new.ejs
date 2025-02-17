@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+<div class="container">
+    <form action="/books" method="post" class="row g-3">
+        <div class="col-12">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" required>
+        </div>
+        <div class="col-6">
+            <label for="last-name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="last-name" required>
+        </div>
+        <div class="col-6">
+            <label for="first-name" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="first-name" required>
+        </div>
+        <div class="col-12">
+            <label for="read-date" class="form-label">Date de lecture</label>
+            <input type="date" id="read-date" class="form-control" required name="read-date">
+        </div>
+        <div class="col-12">
+            <label for="rating" class="form-label">Note</label>
+            <input type="number" min="0" max="5" step="1" required id="rating" class="form-control" name="rating">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Critique</label>
+            <textarea name="review" required class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+
+    </form>
+
+</div>
+<%- include('../partials/footer') %>

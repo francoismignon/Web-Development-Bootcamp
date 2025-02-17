@@ -4,7 +4,7 @@ import * as OpenlibraryService from '../services/openLibraryService';
 import {Book} from '../models/bookModel';
 
 export const getAllBooks = async (req: Request, res: Response)=>{
-    const books:Book[] = await BookModel.fetchAllBooks();
+    const books:Book[] = await BookModel.findAll();
     // for(const book of books){
     //     if(!book.cover_url){
     //         book.cover_url = await OpenlibraryService.fetchBookCover(book.title);
@@ -16,6 +16,30 @@ export const getAllBooks = async (req: Request, res: Response)=>{
         books
     });
 }
+
+export const getNewBookForm = async (req:Request, res:Response)=>{
+    res.render('books/new', {
+        title: 'Nouveau livre'
+    });
+}
+
+export const createBook = async (req:Request, res:Response)=>{
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const showBookEdit = async (req: Request, res: Response)=>{
     const id = req.params.id;

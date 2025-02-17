@@ -18,5 +18,5 @@ app.set('view engine', 'ejs');
 app.use('/books', bookRoutes);
 
 app.listen(PORT, ()=>{
-    console.log(`[server] server running at: http://localhost:${PORT}`);
+    console.log(`[server] server running at: http://localhost:${PORT}/books`);
 });

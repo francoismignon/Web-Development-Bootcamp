@@ -6,9 +6,9 @@ const router = express.Router();
 router.get("/", BookController.getAllBooks);
 router.get("/new", BookController.getNewBookForm);
 router.post("/", BookController.createBook);
-router.get("/:id", BookController.showBook);
-router.get("/:id/edit", BookController.getBookForEdit);
-router.put("/:id", BookController.updateBook);
-router.delete("/:id", BookController.deleteBook);
+// router.get("/:id", BookController.showBook);
+// router.get("/:id/edit", BookController.getBookForEdit);
+// router.put("/:id", BookController.updateBook);
+// router.delete("/:id", BookController.deleteBook);
 
 export default router;
