@@ -18,9 +18,13 @@ export interface BookInput{
     cover_url?: string;
 }
 
-export const findAllBook = async () => {
-    const result = await db.query('SELECT * FROM books');
-    return result.rows;
+export const findAllBooks = async () => {
+    try {
+        const result = await db.query('SELECT * FROM books');
+        return result.rows;
+    } catch (error) {
+        throw new Error("Aucun livre n'as été trouvé");
+    }
 }
 export const findBookById = async(id:number):Promise<Book | null> =>{
     try {
@@ -47,32 +51,22 @@ export const createBook = async (bookData:BookInput):Promise<Book> =>{
 export const updateBookById = async (id:number, bookData:BookInput):Promise<Book> =>{
     try {
         const result = await db.query(
-            'UPDATE books SET author_id = $1, title = $2, read_date = $3, rating = $4, review = $5, cover_url = $6 RETURNING *',
-            [bookData.author_id, bookData.title, bookData.read_date, bookData.rating, bookData.review, bookData.cover_url]
+            'UPDATE books SET author_id = $1, title = $2, read_date = $3, rating = $4, review = $5, cover_url = $6 WHERE id_book = $7 RETURNING *',
+            [bookData.author_id, bookData.title, bookData.read_date, bookData.rating, bookData.review, bookData.cover_url, id]
         );
         return result.rows[0];
     } catch (error) {
         throw new Error("La mise a jour n'as pas fonctionné");
     }
 }
-export const deleteBookById = async (id:number):Promise<void> =>{
-    
-}
-
-
-
-
-
-
-
-
-
-
-export const updateBook = async (id: string, data: { id_book: any; author_id?: any; title?: any; read_date?: string; rating?: number; review?: string; cover_url?: any; id_author?: any; last_name?: any; first_name?: any; })=>{
-    await db.query('UPDATE books SET cover_url = $1 WHERE id_book = $2', [data.id_book, id]);
-}
-
-export const fetchBookById = async (id:string)=>{
-    const result = await db.query('SELECT * FROM books INNER JOIN authors ON books.author_id = authors.id_author WHERE id_book = $1', [id]);
-    return result.rows[0];
+export const deleteBookById = async (id:number):Promise<Book | null> =>{
+    try {
+        const result = await db.query(
+            'DELETE FROM books WHERE id_book = $1',
+            [id]
+        );
+        return result.rows[0] || null;
+    } catch (error) {
+        throw new Error("Le livre n'as pas été supprimé correctement");
+    }
 }
