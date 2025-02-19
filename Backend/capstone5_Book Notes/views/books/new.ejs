@@ -3,15 +3,15 @@
     <form action="/books" method="post" class="row g-3">
         <div class="col-12">
             <label for="title" class="form-label">Titre</label>
-            <input type="text" class="form-control" id="title" required>
+            <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="col-6">
             <label for="last-name" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="last-name" required>
+            <input type="text" class="form-control" id="last-name" name="last-name" required>
         </div>
         <div class="col-6">
             <label for="first-name" class="form-label">Prénom</label>
-            <input type="text" class="form-control" id="first-name" required>
+            <input type="text" class="form-control" id="first-name" name="first-name" required>
         </div>
         <div class="col-12">
             <label for="read-date" class="form-label">Date de lecture</label>
@@ -28,6 +28,5 @@
         <button type="submit" class="btn btn-primary">Ajouter</button>
 
     </form>
-
 </div>
 <%- include('../partials/footer') %>

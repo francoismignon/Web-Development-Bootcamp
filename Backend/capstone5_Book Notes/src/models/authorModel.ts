@@ -3,19 +3,20 @@ import db from './db'
 export interface Author{
     id_author: number;
     last_name: string;
-    first_name?: string;
+    first_name: string;
 }
 export interface AuthorInput{
-    last_name: string;
+    last_name?: string;
     first_name?: string;
 }
 
-export const findAllAuthors = async () => {
+export const findAllAuthors = async ():Promise<Author[]> => {
     try {
         const result = await db.query('SELECT * FROM authors');
         return result.rows; 
     } catch (error) {
-        throw new Error("Aucun auteur n'as été trouvé");
+        console.error(error);
+        throw new Error("Il y a eu un probleme lors de la recherche");
     }
 }
 export const findAuthorById = async(id:number):Promise<Author | null> =>{
@@ -26,7 +27,8 @@ export const findAuthorById = async(id:number):Promise<Author | null> =>{
         );
         return result.rows[0] || null;
     } catch (error) {
-        throw new Error("l'auteur n'as pas été trouvé");
+        console.error(error);
+        throw new Error("probleme lors de la recherche");
     }
 }
 export const createAuthor = async (author:AuthorInput):Promise<Author> =>{
@@ -37,7 +39,8 @@ export const createAuthor = async (author:AuthorInput):Promise<Author> =>{
         );
         return result.rows[0];
     } catch (error) {
-        throw new Error("Impossible de créer l'Autheur en base de donnée: ");
+        console.error(error);
+        throw new Error("probleme lors de la création ");
     }
 }
 export const updateAuthorById = async (id:number, authorData:AuthorInput):Promise<Author> =>{
@@ -48,7 +51,8 @@ export const updateAuthorById = async (id:number, authorData:AuthorInput):Promis
         );
         return result.rows[0];
     } catch (error) {
-        throw new Error("La mise a jour n'as pas fonctionné");
+        console.error(error);
+        throw new Error("probleme lors de la mise a jour");
     }
 }
 export const deleteAuthorById = async (id:number):Promise<Author | null> =>{
@@ -59,6 +63,7 @@ export const deleteAuthorById = async (id:number):Promise<Author | null> =>{
         );
         return result.rows[0] || null;
     } catch (error) {
+        console.error(error);
         throw new Error("L'auteur n'as pas été supprimé correctement");
     }
 }

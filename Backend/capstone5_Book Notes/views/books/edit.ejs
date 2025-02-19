@@ -1,32 +1,31 @@
 <%- include('../partials/header') %>
 <div class="container">
-    <div class="row">
-        <div class="col-2">
-            <img src=<%= book.cover_url %>>
+    <form action="/books/<%= bookAuthor.id_book %>" method="post" class="row g-3">
+        <div class="col-12">
+            <label for="title" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="title" name="title" required value="<%= bookAuthor.title %>">
         </div>
-        <div class="col-2">
-            <form action="/book/<%= book.id_book %>/edit" method="post">
-                <div class="mb-3">
-                    <label for="read-date" class="form-label">Date de lecture</label>
-                    <input type="date" id="read-date" class="form-control" required name="read-date" value=<%= book.read_date.toISOString().split('T')[0] %>>
-                </div>
-                <div class="mb-3">
-                    <label for="rating" class="form-label">Note</label>
-                    <input type="number" min="0" max="5" step="1" required id="rating" class="form-control" name="rating" value=<%= book.rating %>>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Critique</label> 
-                    <textarea name="review" required class="form-control"><%= book.review %></textarea>
-                </div>
-                <input type="hidden" name="author_id" value="book.author_id">
-                <input type="hidden" name="title" value="book.title">
-                <input type="hidden" name="cover_url" value="book.cover_url">
-                <input type="hidden" name="id_author" value="book.id_author">
-                <input type="hidden" name="last_name" value="book.last_name">
-                <input type="hidden" name="first_name" value="book.first_name">
-                <button type="submit" class="btn btn-primary">Modifier</button>
-            </form>
+        <div class="col-6">
+            <label for="last-name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="last-name" name="last-name" required value="<%= bookAuthor.last_name %>">
         </div>
-    </div>
+        <div class="col-6">
+            <label for="first-name" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="first-name" name="first-name" required value="<%= bookAuthor.first_name %>">
+        </div>
+        <div class="col-12">
+            <label for="read-date" class="form-label">Date de lecture</label>
+            <input type="date" id="read-date" class="form-control" required name="read-date" value="<%= bookAuthor.read_date.toISOString().split('T')[0] %>">
+        </div>
+        <div class="col-12">
+            <label for="rating" class="form-label">Note</label>
+            <input type="number" min="0" max="5" step="1" required id="rating" class="form-control" name="rating" value="<%= bookAuthor.rating %>">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Critique</label>
+            <textarea name="review" required class="form-control"><%= bookAuthor.review %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Modifier</button>
+    </form>
 </div>
 <%- include('../partials/footer') %>

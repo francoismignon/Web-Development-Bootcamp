@@ -1,5 +1,4 @@
 <%- include('../partials/header') %>
-<!-- <button type="button" class="btn btn-primary" href="/books/new">Ajouter un livre</button> -->
  <a href="/books/new" type="button" class="btn btn-primary">Ajouter un livre</a>
 <div class="container">
     <div class="row g-4">
@@ -12,7 +11,10 @@
                         <p class="card-text">Auteur: <%= book.last_name %> <%= book.first_name %></p>
                         <p class="card-text">Date: <%= book.read_date.toLocaleDateString('fr-BE') %></p>
                         <p class="card-text">Note: <%= book.rating %></p>
-                        <a href="/book/<%= book.id_book %>/edit" class="btn btn-primary">Modifer</a>
+                        <a href="/books/<%= book.id_book %>/edit" class="btn btn-primary">Modifer</a>
+                        <form action="/books/<%= book.id_book %>/delete" method="post">
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                        </form>
                     </div>
                 </div>
             </div>
