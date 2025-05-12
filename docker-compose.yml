@@ -1,0 +1,32 @@
+services:
+
+  postgres:                                                 # Service PostgreSQL - gère ta base de données relationnelle
+    container_name: Postgres
+    image: postgres:latest                                      # Utilise la version 15, stable et bien supportée (évite 'latest' pour plus de contrôle)
+    restart: always                                         # Redémarre automatiquement le conteneur s’il plante ou si Docker redémarre
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}                       # Nom d’utilisateur à créer (défini dans un fichier .env)
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}               # Mot de passe associé à l’utilisateur
+      #POSTGRES_DB: ${POSTGRES_DB}                           # Base de données créée automatiquement au démarrage
+    volumes:
+      - postgres_data:/var/lib/postgresql/data              # Sauvegarde les données sur un volume persistant Docker
+    ports:
+      - "5432:5432"                                         # Expose le port 5432 (PostgreSQL) de l’hôte vers le conteneur
+
+  pgadmin:                                                  # Interface graphique web pour PostgreSQL (facilite l'exploration et la gestion des bases)
+    container_name: Pgadmin
+    image: dpage/pgadmin4:latest                              # Version stable actuelle compatible avec PostgreSQL 15+
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}       # Identifiant (email) pour se connecter à l’interface
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD} # Mot de passe pour accéder à pgAdmin
+    ports:
+      - "8080:80"                                           # Le port 80 (conteneur) est mappé sur le port 8080 (machine hôte) → http://localhost:8080
+    depends_on:
+      - postgres                                            # Assure que le service PostgreSQL démarre avant pgAdmin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin                       # Stocke tes réglages et connexions pgAdmin (persistant)
+
+volumes:
+  postgres_data:                                            # Volume nommé pour conserver les données PostgreSQL même après un arrêt
+  pgadmin_data:                                             # Volume nommé pour garder les préférences et connexions pgAdmin
