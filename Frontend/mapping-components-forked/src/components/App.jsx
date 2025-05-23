@@ -11,14 +11,11 @@ function createCard(contact) {
     email={contact.email}
     id={contact.id}
   />;
-
 }
-
 function App() {
   return (
     <div>
       <h1 className="heading">My Contacts</h1>
-
       {contacts.map(createCard)}
     </div>
   );
